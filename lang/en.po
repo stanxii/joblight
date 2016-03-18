@@ -228,13 +228,13 @@ msgstr ""
 msgid "private"
 msgstr ""
 
-#: /home/oleg/work/iq/itsquiz-wall/bin/../src_es5/components/AppBar.js:131
+#: /home/oleg/work/iq/itsquiz-wall/bin/../src_es5/components/StatusBar.js:131
 msgid "Sign in"
 msgstr ""
 
-#: /home/oleg/work/iq/itsquiz-wall/bin/../src_es5/components/AppBar.js:132
-#: /home/oleg/work/iq/itsquiz-wall/bin/../src_es5/components/AppBar.js:155
-#: /home/oleg/work/iq/itsquiz-wall/bin/../src_es5/components/AppBar.js:161
+#: /home/oleg/work/iq/itsquiz-wall/bin/../src_es5/components/StatusBar.js:132
+#: /home/oleg/work/iq/itsquiz-wall/bin/../src_es5/components/StatusBar.js:155
+#: /home/oleg/work/iq/itsquiz-wall/bin/../src_es5/components/StatusBar.js:161
 msgid "Sign up / Sign in"
 msgstr ""
 

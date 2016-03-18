@@ -31,7 +31,7 @@ const i18nToolsRegistry = {
 
 const app = express();
 
-app.use('/static', express.static('public/static'));
+app.use('/static', express.static('public/static'));   /*设置静态资源路径*/
 app.use(cookieParser());
 
 app.use((req, res) => {
@@ -44,7 +44,7 @@ app.use((req, res) => {
 
     // If user is authenticated redirect him to the wall embedded into the main app
     if (req.cookies.authenticated && !req.url.match('embed')) {
-        const redirectUrl = makeRedirectUrl({ originalUrl: req.url });
+        const redirectUrl = makeRedirectUrl({ originalUrl: req.url });    /* http://app.itsquiz.com/quizwall/req.url */
 
         return res.redirect(302, redirectUrl);
     }
@@ -56,7 +56,7 @@ app.use((req, res) => {
 
     match({ routes, location: req.url }, (error, redirectLocation, renderProps) => {
         if (req.url === '/') {
-            res.redirect(302, '/activations');
+            res.redirect(302, '/jobsearch');
         }
         if (redirectLocation) {
             res.redirect(301, redirectLocation.pathname + redirectLocation.search);

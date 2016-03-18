@@ -69,6 +69,27 @@ export default class LoginDialog extends Component {
                             <Icon type='github-circle' className='LoginDialog__icon'/>
                         </div>
                     </div>
+                    <div className='LoginDialog__buttons-container'>
+                        <div
+                            className='LoginDialog__button LoginDialog__button--twitter'
+                            onClick={onSocialLogin.bind(null, 'twitter')}
+                        >
+                            <Icon type='twitter' className='LoginDialog__icon'/>
+                        </div>
+                        <div
+                            className='LoginDialog__button LoginDialog__button--qq'
+                            onClick={onSocialLogin.bind(null, 'qq')}
+                        >
+                            <Icon type='qq' className='LoginDialog__icon'/>
+                        </div>
+                        <div
+                            className='LoginDialog__button LoginDialog__button--qq'
+                            onClick={onSocialLogin.bind(null, 'qq')}
+                        >
+                            <Icon type='wechat' className='LoginDialog__icon'/>
+                        </div>
+                    </div>
+
 
                     <h4 className='LoginDialog__title LoginDialog__title--clickable' onClick={onEmailLogin}>
                         {l('or use your e-mail')}
