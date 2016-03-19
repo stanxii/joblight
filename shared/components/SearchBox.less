@@ -4,37 +4,8 @@
 
 .SearchBox {
     width: 100%;
-
-    &.SearchBox--focused {
-        .SearchBox__box {
-            background-color: @white-darker;
-            box-shadow: 0 3px 4px 0 rgba(0,0,0,.14),0 3px 3px -2px rgba(0,0,0,.2),0 1px 8px 0 rgba(0,0,0,.12);
-        }
-
-        .SearchBox__input {
-            color: @black-dark;
-
-            &::-webkit-input-placeholder {
-               color: @black-light;
-            }
-
-            &:-moz-placeholder {
-               color: @black-light;
-            }
-
-            &::-moz-placeholder {
-               color: @black-light;
-            }
-
-            &:-ms-input-placeholder {
-               color: @black-light;
-            }
-        }
-
-        .SearchBox__search-icon {
-            color: @black-light;
-        }
-    }
+    display: flex;
+    justify-content: center;
 
     @media @phone {
         width: auto;
@@ -49,52 +20,28 @@
     }
 }
 
-.SearchBox__input-expandable {
-    position: relative;
-    top: 3px;
-    display: none;
-
-    .mdl-textfield__input {
-        font-weight: 300;
-        margin-left: 5px;
-
-        &::-webkit-input-placeholder {
-           color: @white-dark;
-        }
-
-        &:-moz-placeholder {
-           color: @white-dark;
-        }
-
-        &::-moz-placeholder {
-           color: @white-dark;
-        }
-
-        &:-ms-input-placeholder {
-           color: @white-dark;
-        }
-    }
-
-    .mdl-button--icon i {
-        font-size: 28px;
-    }
-}
-
 .SearchBox__box {
     min-width: 100px;
     box-sizing: border-box;
-    width: 100%;
+    width: 290px;
     background-color: @white-light;
-    display: flex;
+    display: inline-flex;
     flex-direction: row;
     height: 45px;
     padding: 3px 16px;
     border-radius: 3px;
-    margin: 0;
+    margin: 0 5px;
     align-items: center;
     transition: .3s;
     cursor: default;
+    border: 1px solid #363342;
+
+    &:hover {
+        border: 1px solid #78b7bb;
+    }
+
 }
+
 
 .SearchBox__input {
     border: none;
@@ -105,22 +52,22 @@
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
     width: 100%;
-    color: @white-darker;
+    color: #222;
 
     &::-webkit-input-placeholder {
-       color: @white-dark;
+       color: #222;
     }
 
     &:-moz-placeholder {
-       color: @white-dark;
+       color: #222;
     }
 
     &::-moz-placeholder {
-       color: @white-dark;
+       color: #222;
     }
 
     &:-ms-input-placeholder {
-       color: @white-dark;
+       color: #222;
     }
 
     &:focus {
@@ -128,6 +75,7 @@
     }
 }
 
-.SearchBox__search-icon {
-    color: @white-darker;
+.SearchBox_btn {
+    margin-top: 30px;
+    text-align: center;
 }

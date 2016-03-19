@@ -1,8 +1,6 @@
 import React, { Component, PropTypes } from 'react';
-import cx                            from 'classnames';
 
-import Icon       from 'react-mdl/lib/Icon';
-import Textfield  from 'react-mdl/lib/Textfield';
+import Button  from 'react-mdl/lib/Button';
 
 if (process.env.BROWSER) {
     require('./SearchBox.less');
@@ -19,10 +17,6 @@ export default class SearchBox extends Component {
 
     static contextTypes = { i18n: PropTypes.object };
 
-    state = {
-        isFocused: false
-    };
-
     handleKeyDown = (e) => {
         if (e.keyCode === ENTER_KEY) {
             this.props.onSearch(e.target.value);
@@ -37,64 +31,45 @@ export default class SearchBox extends Component {
         }
     };
 
-    handleBoxClick = () => {
-        this._input.focus();
-    };
-
-    handleFocus = () => {
-        this.setState({
-            isFocused: true
-        });
-    };
-
-    handleBlur = () => {
-        this.setState({
-            isFocused: false
-        });
-    };
-
     render() {
         const { search } = this.props;
         const { l } = this.context.i18n;
 
-        const rootClassNames = cx('SearchBox', {
-            'SearchBox--focused' : this.state.isFocused
-        });
-
         return (
-            <div className={rootClassNames}>
-                <div
-                    className='SearchBox__box'
-                    onClick={this.handleBoxClick}
-                >
-                    <Icon name='search' className='SearchBox__search-icon'/>
-
-                    <input
-                        className    = 'SearchBox__input'
-                        type         = 'text'
-                        ref          = {ref => this._input = ref}
-                        placeholder  = {l('Search')}
-                        defaultValue = {search}
-                        onChange     = {this.handleSearchChange}
-                        onKeyDown    = {this.handleKeyDown}
-                        onFocus      = {this.handleFocus}
-                        onBlur       = {this.handleBlur}
-                    />
+            <div>
+                <div className='SearchBox'>
+                    <div
+                        className='SearchBox__box'
+                    >
+                        <input
+                            className    = 'SearchBox__input'
+                            type         = 'text'
+                            ref          = {ref => this._input = ref}
+                            placeholder  = {l('Keywords')}
+                            defaultValue = {search}
+                            onChange     = {this.handleSearchChange}
+                            onKeyDown    = {this.handleKeyDown}
+                        />
+                    </div>
+                    <div
+                        className='SearchBox__box'
+                    >
+                        <input
+                            className    = 'SearchBox__input'
+                            type         = 'text'
+                            ref          = {ref => this._input = ref}
+                            placeholder  = {l('Location')}
+                            defaultValue = {search}
+                            onChange     = {this.handleSearchChange}
+                            onKeyDown    = {this.handleKeyDown}
+                        />
+                    </div>
                 </div>
-
-                <Textfield
-                    expandable
-                    className      = 'SearchBox__input-expandable'
-                    type           = 'text'
-                    placeholder    = {l('Search')}
-                    label          = {'ololo'}
-                    defaultValue   = {search}
-                    expandableIcon = 'search'
-                    onChange       = {this.handleSearchChange}
-                    onKeyDown      = {this.handleKeyDown}
-                    onFocus        = {this.handleFocus}
-                    onBlur         = {this.handleBlur}
-                />
+                <div className='SearchBox_btn'>
+                    <Button className='mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect'>
+                        {l('Search Jobs')}
+                    </Button>
+                </div>
             </div>
         );
     }
