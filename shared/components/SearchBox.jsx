@@ -1,7 +1,5 @@
 import React, { Component, PropTypes } from 'react';
 
-import Button  from 'react-mdl/lib/Button';
-
 if (process.env.BROWSER) {
     require('./SearchBox.less');
 }
@@ -9,7 +7,6 @@ if (process.env.BROWSER) {
 const ENTER_KEY = 13;
 
 export default class SearchBox extends Component {
-
     static propTypes = {
         search   : PropTypes.string,
         onSearch : PropTypes.func
@@ -64,11 +61,6 @@ export default class SearchBox extends Component {
                             onKeyDown    = {this.handleKeyDown}
                         />
                     </div>
-                </div>
-                <div className='SearchBox_btn'>
-                    <Button className='mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect'>
-                        {l('Search Jobs')}
-                    </Button>
                 </div>
             </div>
         );

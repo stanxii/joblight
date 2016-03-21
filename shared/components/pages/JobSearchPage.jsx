@@ -3,13 +3,14 @@ import React, { Component, PropTypes } from 'react';
 import StatusBar from '../StatusBar.jsx';
 import SearchBox from '../SearchBox.jsx';
 
+import Button from 'react-mdl/lib/Button';
+
 if (process.env.BROWSER) {
     require('./JobSearchPage.less');
 }
 
 export default class JobSearchPage extends Component {
     static propTypes = {
-        className: PropTypes.string,
         search: PropTypes.string,
         onSearch: PropTypes.func
     };
@@ -22,7 +23,6 @@ export default class JobSearchPage extends Component {
 
     render() {
         const {
-            className,
             search,
             onSearch
             } = this.props;
@@ -40,7 +40,12 @@ export default class JobSearchPage extends Component {
                     </div>
                 </div>
                 <div className='search_container'>
-                    <SearchBox className = 'App_search' search = {search} onSearch = {onSearch} />
+                    <SearchBox className = 'App_search' search = {search} onSearch = {onSearch}/>
+                    <div className='SearchBox_btn'>
+                        <Button className='mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect'>
+                            {l('Search Jobs')}
+                        </Button>
+                    </div>
                 </div>
             </div>
         );

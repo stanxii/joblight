@@ -1,11 +1,10 @@
 import React, { Component, PropTypes } from 'react';
-import cx                              from 'classnames';
 
 import SearchBox      from './SearchBox.jsx';
 import LanguageSwitch from '../containers/LanguageSwitch.jsx';
 import LoginDialog    from '../containers/LoginDialog.jsx';
 
-import IconButton from 'react-mdl/lib/IconButton';
+import Button from 'react-mdl/lib/Button';
 
 if (process.env.BROWSER) {
     require('./AppBar.less');
@@ -33,7 +32,7 @@ export default class AppBar extends Component {
         title            : '',
         search           : '',
         fixOnScroll      : true,
-        displaySearch    : false,
+        displaySearch    : true,
         displayRightMenu : true,
         rightIconName    : '',
         scrollOffset     : 0
@@ -96,13 +95,9 @@ export default class AppBar extends Component {
 
         const { isLoggingIn, isFixedToTop } = this.state;
 
-        const rootClassNames = cx('AppBar', className, {
-            'AppBar--fixed'       : isFixedToTop,
-            'AppBar--with-search' : displaySearch
-        });
 
         return (
-            <div className={rootClassNames}>
+            <div className='AppBar'>
 
                 <LoginDialog
                     isOpen={isLoggingIn}
@@ -121,7 +116,6 @@ export default class AppBar extends Component {
                               />
                     }
 
-                    <h2 className='AppBar__title'> {title} </h2>
                 </div>
                 {
                     displaySearch
@@ -131,8 +125,10 @@ export default class AppBar extends Component {
                                 search    = {search}
                                 onSearch  = {onSearch}
                             />
+                            <Button className='mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent'>搜索职位</Button>
                         </div>
                         : null
+
                 }
 
                 {
