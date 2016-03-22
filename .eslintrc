@@ -170,7 +170,7 @@
         //     }
         // }],
         "linebreak-style": [2, "unix"],
-        "max-len": [2, 120, 4, {
+        "max-len": [2, 220, 4, {
             "ignoreUrls": true,
             "ignoreComments": false
         }],

@@ -1,10 +1,12 @@
 import React, { Component, PropTypes } from 'react';
+import cx                              from 'classnames';
 
 import SearchBox      from './SearchBox.jsx';
 import LanguageSwitch from '../containers/LanguageSwitch.jsx';
 import LoginDialog    from '../containers/LoginDialog.jsx';
 
 import Button from 'react-mdl/lib/Button';
+import IconButton from 'react-mdl/lib/IconButton';
 
 if (process.env.BROWSER) {
     require('./AppBar.less');
@@ -95,10 +97,14 @@ export default class AppBar extends Component {
 
         const { isLoggingIn, isFixedToTop } = this.state;
 
+        const rootClassNames = cx('AppBar', className, {
+            'AppBar--fixed'       : isFixedToTop,
+            'AppBar--with-search' : displaySearch
+        });
 
         return (
             <div className='AppBar'>
-
+                <div className={rootClassNames}/>
                 <LoginDialog
                     isOpen={isLoggingIn}
                     onRequestClose={this.handleLoginDialogClose}
@@ -115,7 +121,7 @@ export default class AppBar extends Component {
                                 className='AppBar__logo'
                               />
                     }
-
+                    <h2 className='AppBar__title'> {title} </h2>
                 </div>
                 {
                     displaySearch

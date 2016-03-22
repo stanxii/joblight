@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import cx    from 'classnames';
 
 import AppBar from '../AppBar.jsx';
 
@@ -9,9 +10,24 @@ if (process.env.BROWSER) {
 }
 
 export default class SearchResultPage extends Component {
+    static propTypes = {
+        isLoading              : React.PropTypes.bool,
+        isEmbedded             : React.PropTypes.bool
+    };
+
     render() {
+        const {
+            isLoading,
+            isEmbedded
+        } = this.props;
+
+        const classes = cx('SearchResultPage', {
+            'SearchResultPage--embedded' : isEmbedded,
+            'SearchResultPage--loading'  : isLoading
+        });
+
         return (
-            <div>
+            <div className={classes}>
                 <AppBar />
                 <Grid className='demo-grid-ruler'>
                     <Cell col={2}>
@@ -32,9 +48,9 @@ export default class SearchResultPage extends Component {
                         </List>
                     </Cell>
                     <Cell col={10}>
-                        <List style={{width: '650px'}}>
+                        <List className='SearchResultPage__list-container'>
                             <ListItem threeLine>
-                                <ListItemContent subtitle='Bryan Cranston played the role of Walter in Breaking Bad. He is also known for playing Hal in Malcom in the Middle.'>
+                                <ListItemContent subtitle='Bryan Cranston played the role of fore Middle.'>
                                     C++ Developer
                                 </ListItemContent>
                                 <ListItemAction>
